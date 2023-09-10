@@ -21,19 +21,24 @@
 // let googleRatePerHour = 400;
 // let amazonRatePerHour = 380;
 // let facebookRatePerHour = 350;
-// let facebookHoursWorked = prompt("How Facebook hours did you work?");
-// let googleHoursWorked = prompt("How Google hours did you work?");
-// let amazonHoursWorked = prompt("How Amazon hours did you work?");
+// let facebookHoursWorked = prompt("How many Facebook hours did you work?");
+// let googleHoursWorked = prompt("How many Google hours did you work?");
+// let amazonHoursWorked = prompt("How many Amazon hours did you work?");
 // let facebookWages = facebookHoursWorked * facebookHoursWorked;
 // let googleWages = googleHoursWorked * googleRatePerHour;
 // let amazonWages = amazonHoursWorked * amazonRatePerHour;
 // let totalWeekPay = facebookWages + googleWages + amazonWages;
 // alert(`You earned $${totalWeekPay.toFixed(2)} this week!`);
 
-let classNotFull = true;
-let noScheduleConflict = true
-let canEnroll = classNotFull && noScheduleConflict;
 
-let premiumMember = true;
-let itemsBought = 1;
-let offerExpired = !premiumMember && itemsBought < 2;
+// let classNotFull = confirm("The class isn't full");
+// let isScheduleConflict = confirm("There isn't a schedule conflict");
+// let canEnroll = classNotFull && isScheduleConflict;
+// alert(`Can enroll....${canEnroll}`);
+
+
+// let premiumMember = confirm("Click 'OK' to confirm you're a Premium Member");
+// let itemsBought = prompt("How many items did you buy?");
+// let offerNotExpired = premiumMember || (itemsBought > 2);
+// alert(offerNotExpired);
+
