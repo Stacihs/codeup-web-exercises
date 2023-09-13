@@ -30,5 +30,6 @@ function trim(str, maxStrLength) {
     }
 }
 
-console.log(trim('Good Morning', 10));
+// console.log(trim('Good Morning', 10));
+
 

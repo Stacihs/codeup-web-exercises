@@ -129,7 +129,10 @@ function calculateTotal(number, totalAmount) {
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+const luckyNumber = Math.floor(Math.random() * 6);
+const userBill = prompt("What was your bill?");
+alert(`Your lucky number was ${luckyNumber} and your original bill is $${userBill}, after the discount it's $${calculateTotal(luckyNumber, userBill)}`);
+
 
 /**
  * TODO:
