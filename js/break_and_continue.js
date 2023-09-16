@@ -1,12 +1,12 @@
 "use strict";
-
+// TODO make it a function add comments
 //BREAK AND CONTINUE
 
 // let userNumber = parseInt(prompt("Enter an odd number between 1 and 50"));
 //
 // console.log(`Number to skip is: ${userNumber}`);
 // console.log("");
-//
+// // // TODO fix prompt
 // for (let i = 1; i < 50; i++) {
 //     if (userNumber < 1 || userNumber > 50 || userNumber % 2 === 0) {
 //         userNumber = parseInt(prompt("Enter an odd number between 1 and 50"));

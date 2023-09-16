@@ -9,17 +9,17 @@ function showMultiplicationTable(number) {
 
 // showMultiplicationTable(7);
 
-
+// TODO make all functions
 // EXERCISE 2
 
-// for (let i = 1; i <= 10; i++) {
-//     let randomNum = Math.floor(Math.random() * (200 - 20 + 1)) + 20;
-//     if (randomNum % 2 === 0) {
-//         console.log(`${randomNum} is even`);
-//     } else {
-//         console.log(`${randomNum} is odd`);
-//     }
-// }
+for (let i = 1; i <= 10; i++) {
+    let randomNum = Math.floor(Math.random() * (200 - 20 + 1)) + 20;
+    if (randomNum % 2 === 0) {
+        console.log(`${randomNum} is even`);
+    } else {
+        console.log(`${randomNum} is odd`);
+    }
+}
 
 //EXERCISE 3
 //     for (let i = 1; i <= 9; i++) {
