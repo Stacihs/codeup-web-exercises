@@ -163,13 +163,13 @@ const books = [
  */
 
 // TODO FINISH BONUS
-function createBook(title, author) {
-    let book = {
-        title: title,
-        author: {
-            firstName: this.firstName,
-            lastName: this.lastName
-        },
-    };
-    return book;
-}
+// function createBook(title, author) {
+//     let book = {
+//         title: title,
+//         author: {
+//             firstName: this.firstName,
+//             lastName: this.lastName
+//         },
+//     };
+//     return book;
+// }
