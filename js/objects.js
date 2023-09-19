@@ -55,14 +55,15 @@ const shoppers = [
 ];
 
 
-// for (let shopper of shoppers) {
-//     if (shopper.amount > 200) {
-//         let discountedAmount = (shopper.amount - (shopper.amount * 0.12)).toFixed(2);
-//         console.log(`${shopper.name}'s amount was $${shopper.amount} before the discount is $${discountedAmount} after the discount.`);
-//     } else {
-//         console.log(`${shopper.name}'s amount is $${shopper.amount}.`);
-//     }
-// }
+for (let shopper of shoppers) {
+    if (shopper.amount > 200) {
+        let discount = (shopper.amount * 0.12).toFixed(2);
+        let discountedAmount = (shopper.amount - discount).toFixed(2);
+        console.log(`${shopper.name}'s original total was $${shopper.amount}. The discount is $${discount}. After the discount, the total is $${discountedAmount}.`);
+    } else {
+        console.log(`${shopper.name}'s total is $${shopper.amount}.`);
+    }
+}
 
 
 /** TODO:
