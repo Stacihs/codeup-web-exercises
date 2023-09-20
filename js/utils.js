@@ -18,5 +18,5 @@ function isNumberOrNumericString(input){
     return typeof input !== "boolean"
     && typeof input !== "object"
     && typeof input !== "undefined"
-        && isNaN(parsefloat(input))
+        && isNaN(parseFloat(input))
 }
