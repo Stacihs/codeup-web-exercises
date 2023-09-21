@@ -20,16 +20,27 @@
 // Requested maximum length will be greater than 0. Input string will not be empty.
 
 
-function trim(str, maxStrLength) {
-    if (str.length > maxStrLength) {
-        return str.substring(0, str.length - maxStrLength - 4) + "...";
-    } else if (maxStrLength <= 3) {
-        return str[0] + "...";
-    } else if (str.length <= maxStrLength) {
-        return str;
-    }
-}
+// function trim(str, maxStrLength) {
+//     if (str.length > maxStrLength) {
+//         return str.substring(0, str.length - maxStrLength - 4) + "...";
+//     } else if (maxStrLength <= 3) {
+//         return str[0] + "...";
+//     } else if (str.length <= maxStrLength) {
+//         return str;
+//     }
+// }
 
 // console.log(trim('Good Morning', 10));
 
+// function that accepts an array of numeric values and returns the avg of those values
 
+function avgOfArray(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum / arr.length;
+}
+
+const myArr = [2, 4, 6];
+// console.log(avgOfArray(myArr));
