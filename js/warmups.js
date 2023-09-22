@@ -42,5 +42,26 @@ function avgOfArray(arr) {
     return sum / arr.length;
 }
 
-const myArr = [2, 4, 6];
+const myArr = [13, 5, 9, 8.6];
 // console.log(avgOfArray(myArr));
+
+// average of all elements is a whole number
+
+function isAvgWhole(numsArr) {
+    return avgOfArray(numsArr) % 1 === 0;
+}
+
+// console.log(isAvgWhole(myArr));
+
+// return the sum of pets property for all people in a array of objects of people
+function totalPets(objsArr) {
+    let sumOfPets = 0;
+    objsArr.forEach(person => sumOfPets += person.pets);
+    return sumOfPets;
+}
+
+// for (let person of objsArr) {
+//     sumOfPets += person.pets
+// }
+//  return sumOfPets;
+// }

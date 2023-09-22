@@ -30,3 +30,7 @@ function avgOfArray(arr) {
     }
     return sum / arr.length;
 }
+
+function isAvgWhole(numsArr) {
+    return avgOfArray(numsArr) % 1 === 0;
+}
