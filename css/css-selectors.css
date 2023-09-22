@@ -1,0 +1,32 @@
+h1 {
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+p {
+    color: #ff0000;
+}
+
+#hero.container p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgba(0 0 0 / 65%);
+    box-shadow: -1px 15px 18px #0006;;
+    transform: rotate(357deg);
+}
+
+p {
+    color: blue;
+    text-transform: uppercase;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.container.grow {
+    height: 100dvh;
+}
