@@ -33,12 +33,32 @@ h1, h2 {
     text-align: center;
 }
 
+table {
+    font-size: 1.25rem;
+}
+
 th {
     text-decoration: underline;
 }
 
 td {
     padding: 15px;
+}
+
+footer a {
+    color: rgba(38, 90, 29, 0.88);
+}
+
+a:hover {
+    color: #ed1945;
+}
+
+a:active {
+    color: #d7edd7;
+}
+
+a:visited {
+    color: #af7ce1;
 }
 
 
