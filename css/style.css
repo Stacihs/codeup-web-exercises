@@ -1,4 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&family=Roboto:wght@400;700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .fancy-header {
-    color: purple; /* single line comment */
+    color: #002980; /* single line comment */
     text-decoration: underline;
 }
+
+body {
+    background-color: #d7edd7;
+    background-image: url("https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Urbanist', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul li {
+    list-style-type: square;
+}
+
+header {
+    text-align: center;
+}
+
+h1, h2 {
+    color: #323737;
+    text-decoration: underline;
+    text-align: center;
+}
+
+th {
+    text-decoration: underline;
+}
+
+td {
+    padding: 15px;
+}
+
+
+
