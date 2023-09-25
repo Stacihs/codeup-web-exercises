@@ -33,6 +33,10 @@ h1, h2 {
     text-align: center;
 }
 
+div {
+    margin: 1rem 1.5rem;
+}
+
 table {
     font-size: 1.25rem;
 }
@@ -58,7 +62,7 @@ a:active {
 }
 
 a:visited {
-    color: #af7ce1;
+    color: #094f9b;
 }
 
 
