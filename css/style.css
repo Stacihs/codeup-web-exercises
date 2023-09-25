@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&family=Roboto:wght@400;700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .fancy-header {
     color: #002980; /* single line comment */
@@ -11,6 +11,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Urbanist', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
 }
 
 main {
@@ -31,10 +33,16 @@ h1, h2 {
     color: #323737;
     text-decoration: underline;
     text-align: center;
+    font-weight: 500;
 }
 
 div {
+    display: inline-block;
     margin: 1rem 1.5rem;
+}
+
+img {
+    border: 1px solid #b5b5b5;
 }
 
 table {
@@ -53,15 +61,15 @@ footer a {
     color: rgba(38, 90, 29, 0.88);
 }
 
-a:hover {
+footer a:hover {
     color: #ed1945;
 }
 
-a:active {
+footer a:active {
     color: #d7edd7;
 }
 
-a:visited {
+footer a:visited {
     color: #094f9b;
 }
 
