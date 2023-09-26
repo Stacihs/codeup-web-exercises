@@ -7,15 +7,15 @@
 
 body {
     background-color: #d7edd7;
-    background-image: url("https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-image: url(https://images.pexels.com/photos/5326909/pexels-photo-5326909.jpeg?auto=compress&cs=tinysrgb&w=800);
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Urbanist', sans-serif;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 22px;
 }
 
-main {
+main, section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,6 +42,9 @@ div {
 }
 
 img {
+    width: 400px;
+    height: 250px;
+    margin: 5px 15px;
     border: 1px solid #b5b5b5;
 }
 
