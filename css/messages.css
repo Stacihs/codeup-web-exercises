@@ -1,12 +1,12 @@
 :root {
-    --bg-info: #8fb3ea;
-    --text-info: #0e449b;
-    --bg-success: #b4edc8;
-    --text-success: #126b33;
-    --bg-warning: #ede8b1;
-    --text-warning: #807819;
-    --bg-error: #eab9b9;
-    --text-error: #973d3d;
+    --bg-info: #CDDEFF;
+    --text-info: #4A44A0;
+    --bg-success: #CFF3DA;
+    --text-success: #358351;
+    --bg-warning: #FDFBC8;
+    --text-warning: #958123;
+    --bg-error: #FAD2D6;
+    --text-error: #9B3F51;
 }
 
 
@@ -23,8 +23,6 @@ div {
     padding: .5rem;
     border: 1px solid lightgray;
     border-radius: 5px;
-
-
 }
 
 .message-info {

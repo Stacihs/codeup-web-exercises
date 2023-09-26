@@ -43,6 +43,7 @@ fieldset {
     width: 100%;
     margin-top: .5em;
     margin-bottom: .5em;
+/*    margin: .5em 0;*/
 }
 
 .form-label {
@@ -76,8 +77,10 @@ fieldset {
     /*width: 100%;*/
     padding-top: 4px;
     padding-bottom: 4px;
+    /*padding: 4px 0;*/
     margin-top: .5em;
     margin-bottom: .5em;
+    /*margin: .5em 0;*/
     width: calc(100% - 4px);
 }
 
