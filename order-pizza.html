@@ -8,25 +8,45 @@
 	<title>Order Pizza</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
 	      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-<nav class="navbar bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
 	<div class="container-fluid">
-		<a class="navbar-brand">Navbar</a>
-		<form class="d-flex" role="search">
-			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success" type="submit">Search</button>
-		</form>
+		<a class="navbar-brand" href="#">Pizza World</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+		        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#">Order Online</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Menu</a>
+				</li>
+			</ul>
+			<form class="d-flex m-0 align-items-center" role="search">
+				<input class="form-control me-2" type="search" placeholder="Zip Code" aria-label="Search">
+				<button class="btn btn-outline-primary text-nowrap" type="submit">Search for stores near you!</button>
+				<button type="button" class="btn btn-light text-nowrap"><span><i
+						class="bi bi-person-fill mx-1"></i></span>Sign Up!
+				</button>
+			</form>
+		</div>
 	</div>
 </nav>
 <div class="container container-fluid">
-	<div class="jumbotron d-flex align-items-center d-sm-none d-md-block" style="background-image: url(img/pizza.png); height: 346px">
-		<h1 class="text-center bg-light bg-opacity-75 py-2">Welcome to Pizza World!</h1>
+	<div class="jumbotron d-flex align-items-center d-sm-none d-md-flex"
+	     style="background-image: url(img/pizza.png); height: 346px">
+		<h1 class="text-center bg-light bg-opacity-75 py-2" style="width: 100%">Welcome to Pizza World!</h1>
 	</div>
 	<h2 class="mt-5">Build your own pizza!</h2>
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" href="#"><span class="badge rounded-pill bg-secondary m-1">1</span>Size and Crust</a>
+			<a class="nav-link active" aria-current="page" href="#"><span
+					class="badge rounded-pill bg-secondary m-1">1</span>Size and Crust</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="#"><span class="badge rounded-pill bg-secondary m-1">2</span>Cheese and Sauce</a>
@@ -35,9 +55,9 @@
 			<a class="nav-link" href="#"><span class="badge rounded-pill bg-secondary m-1">3</span>Toppings</a>
 		</li>
 	</ul>
-	<div class="card">
+	<div class="card crust">
 		<div class="card-header bg-primary text-white">
-			Choose size and Crust
+			Choose Size and Crust
 		</div>
 		<div class="card m-3">
 			<div class="card-header">
@@ -52,7 +72,7 @@
 					Small 10"
 				</li>
 				<li class="list-group-item">
-					<input class="form-check-input me-1" type="radio" value="md"  name="crust" aria-label="...">
+					<input class="form-check-input me-1" type="radio" value="md" name="crust" aria-label="...">
 					Medium 12"
 				</li>
 			</ul>
@@ -66,17 +86,126 @@
 					Thin enough for optimum crispy to crunchy ratio
 				</li>
 				<li class="list-group-item">
-					<input class="form-check-input me-1" type="radio" name="crust-crispy" value="md-crispy" aria-label="...">
+					<input class="form-check-input me-1" type="radio" name="crust-crispy" value="md-crispy"
+					       aria-label="...">
 					Medium 12"
 				</li>
 				<li class="list-group-item">
-					<input class="form-check-input me-1" type="radio" name="crust-crispy" value="lg-crispy" aria-label="...">
+					<input class="form-check-input me-1" type="radio" name="crust-crispy" value="lg-crispy"
+					       aria-label="...">
 					Large 14"
 				</li>
 			</ul>
 		</div>
 		<div class="card-footer d-flex justify-content-end">
 			<button type="button" class="btn btn-primary">Next Step ></button>
+		</div>
+	</div>
+	<div class="card cheese-sauce">
+		<div class="card-header bg-primary text-white">
+			Choose Cheese and Sauce
+		</div>
+		<div class="card m-3">
+			<div class="card-header">
+				Cheese
+			</div>
+			<div class="card-header bg-white">
+				How Much?
+			</div>
+			<div class="input-group">
+				<select class="form-select" id="cheese-amount">
+					<option selected>Normal</option>
+					<option value="1">Light</option>
+					<option value="2">Extra</option>
+				</select>
+			</div>
+		</div>
+		<div class="card m-3">
+			<div class="card-header">
+				Sauce
+			</div>
+			<div class="card-header bg-white">
+				What Type?
+			</div>
+			<div class="input-group">
+				<select class="form-select" id="sauce-type">
+					<option selected>Tomato</option>
+					<option value="1">White</option>
+				</select>
+			</div>
+			<div class="card-header">
+				How Much?
+			</div>
+			<div class="input-group">
+				<select class="form-select" id="sauce-amount">
+					<option selected>Normal</option>
+					<option value="1">Light</option>
+					<option value="2">Heavy</option>
+					<option value="3">None</option>
+				</select>
+			</div>
+		</div>
+		<div class="card-footer d-flex justify-content-end">
+			<button type="button" class="btn btn-primary">< Previous></button>
+			<button type="button" class="btn btn-primary">Next Step ></button>
+		</div>
+	</div>
+	<div class="card crust">
+		<div class="card-header bg-primary text-white">
+			Choose Toppings
+		</div>
+		<div class="card m-3">
+			<div class="card-header">
+				Choose Meats
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<input class="form-check-input me-1" type="checkbox" value="beef" name="beef" aria-label="...">
+					Beef
+				</li>
+				<li class="list-group-item">
+					<input class="form-check-input me-1" type="checkbox" value="Ham" name="Ham" aria-label="...">
+					Ham
+				</li>
+				<li class="list-group-item">
+					<input class="form-check-input me-1" type="checkbox" value="Philly Steak" name="crust"
+					       aria-label="...">
+					Philly Steak
+				</li>
+				<li class="list-group-item">
+					<input class="form-check-input me-1" type="checkbox" value="Bacon" name="Bacon" aria-label="...">
+					Bacon
+				</li>
+			</ul>
+		</div>
+		<div class="card m-3">
+			<div class="card-header">
+				Choose Non-Meats
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<input class="form-check-input me-1" type="checkbox" name="Green peppers" value="Green peppers"
+					       aria-label="...">
+					Green Peppers
+				</li>
+				<li class="list-group-item">
+					<input class="form-check-input me-1" type="checkbox" name="Mushrooms" value="Mushrooms"
+					       aria-label="...">
+					Mushrooms
+				</li>
+				<li class="list-group-item">
+					<input class="form-check-input me-1" type="checkbox" name="Onions" value="Onions" aria-label="...">
+					Onions
+				</li>
+				<li class="list-group-item">
+					<input class="form-check-input me-1" type="checkbox" name="Jalapenos" value="Jalapenos"
+					       aria-label="...">
+					Jalapenos
+				</li>
+			</ul>
+		</div>
+		<div class="card-footer d-flex justify-content-end">
+			<button type="button" class="btn btn-primary">Checkout <span><i class="bi bi-cart-fill"></i></span></button>
 		</div>
 	</div>
 </div>
