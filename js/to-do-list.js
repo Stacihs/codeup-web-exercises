@@ -21,24 +21,16 @@ function addItem(event){
 	toDoList.appendChild(toDoItem);
 }
 
-function deleteItem() {
-
+function deleteItem(event) {
+	if(event.target.classList.contains("btn-danger")) {
+		event.target.parentElement.remove();
+	}
 }
-
 
 
 //EVENT LISTENERS
 addToDoBtn.addEventListener("click", addItem);
-doneButton.addEventListener("click", function(event) {
-	if(event.target.classList.contains("btn-danger")) {
-		deleteItem();
-	}
-
-});
-
-
-
-
+toDoList.addEventListener("click", deleteItem)
 
 
 
