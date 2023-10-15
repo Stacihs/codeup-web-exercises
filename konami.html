@@ -6,22 +6,28 @@
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="konami.css">
-
 	<title>Konami Code</title>
 </head>
 <body>
 <div class="container-wrapper">
 	<div class="row">
-		<div class="column">
-			<header class="viewport-header">
-				<h1>Konami Code</h1>
-				<h2>Do You Know The Code?</h2>
-			</header>
-<!--			<video playsinline autoplay muted loop id="zombie">-->
-<!--				<source src="img/zombies.mp4" type="video/mp4">-->
-<!--				Your browser does not support the video tag.-->
-<!--			</video>-->
-		</div>
+		<main class="column">
+			<section id="code">
+				<header class="viewport-header">
+					<h1>Konami Code</h1>
+					<h2>Do You Know The Code?</h2>
+				</header>
+			</section>
+			<section class="hidden" id="lives">
+				<h1 id="more-lives">You have added 30 lives!</h1>
+				<video playsinline autoplay muted loop  id="zombie-dance">
+					<source src="img/zombies.mp4" type="video/mp4">
+					<source src="img/zombies.mp4" type="video/webm">
+					<source src="img/zombies.mp4" type="video/ogv">
+					Your browser does not support the video tag.
+				</video>
+			</section>
+		</main>
 	</div>
 </div>
 
