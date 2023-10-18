@@ -10,12 +10,11 @@
 
 	page.addEventListener("keyup", function (event) {
 		userCode.push(event.key);
-		if (JSON.stringify(userCode) === JSON.stringify(konamiCode)) {
+		if (JSON.stringify(userCode) === (JSON.stringify(konamiCode))) {
 			originalHeader.classList.add("hidden");
 			userAlert.classList.remove("hidden");
 		}
 	})
-
 
 	document.addEventListener("keyup", event => console.log(event.key));
 })();
