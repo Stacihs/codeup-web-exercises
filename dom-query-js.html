@@ -68,11 +68,8 @@
 
         // TODO: Set text color of li with dbid = 1 to blue
         function changeFirstListItemColor() {
-            for (let i = 0; i < listItems.length; i++) {
-                if (i === 0) {
-                    listItems[i].style.color = "blue";
-                }
-            }
+            const lis = document.getElementsByTagName("li");
+            lis[0].style.color = "blue";
         }
 
 
