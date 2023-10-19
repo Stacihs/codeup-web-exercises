@@ -23,6 +23,13 @@ function isNumberOrNumericString(input) {
     );
 }
 
+function isANumber(input) {
+    if(typeof input === "boolean" || input === null) {
+        return false;
+    }
+    return !isNaN(input);
+}
+
 function avgOfArray(arr) {
     let sum = 0;
     for (let i = 0; i < arr.length; i++) {
@@ -33,4 +40,14 @@ function avgOfArray(arr) {
 
 function isAvgWhole(numsArr) {
     return avgOfArray(numsArr) % 1 === 0;
+}
+
+function findHighestPrice(objArr) {
+    let highestPrice = 0;
+    for (let obj of objArr) {
+        if(obj.price > highestPrice) {
+            highestPrice = obj.price;
+        }
+    }
+    return highestPrice;
 }

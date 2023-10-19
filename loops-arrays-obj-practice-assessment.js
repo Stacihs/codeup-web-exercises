@@ -62,9 +62,9 @@ console.log(makePerson("bob", "smith", 42));
 
 //
 // Write a function named getFullName that accepts an object with the fields firstname and lastname. The function returns a concatenation of the firstname and lastname fields with a space between them.
-// function getFullName ({ firstname, lastname}) {
-// 	console.log(`${firstname} ${lastname}`);
-// }
+function getFullName ({ firstname, lastname}) {
+	console.log(`${firstname} ${lastname}`);
+}
 
 console.log(getFullName({
 	firstname: "Bob",
