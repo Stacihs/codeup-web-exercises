@@ -80,9 +80,9 @@
 	console.log(usersNames);
 
 //BONUS
-	const uniqueUserLanguages = new Set();
-	for (let i = 0; i < users.length; i++) {
-		uniqueUserLanguages.add(users[i].languages);
-	}
-	console.log(uniqueUserLanguages);
+// 	const uniqueUserLanguages = new Set();
+// 	for (let i = 0; i < users.length; i++) {
+// 		uniqueUserLanguages.add(users[i].languages);
+// 	}
+// 	console.log(uniqueUserLanguages);
 })();
