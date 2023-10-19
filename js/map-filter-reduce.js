@@ -56,21 +56,21 @@
 	console.log(avgTotalUsersExperience);
 
 
-	// const longestUserEmail = users.reduce((longestEmail, user) => {
-	// 	if(user.email.length > longestEmail) {
-	// 		return user.email;
-	// 	}
-	// 	return longestEmail;
-	// }, users[0].email.length);
-	// console.log(longestUserEmail);
-
 	const longestUserEmail = users.reduce((longestEmail, user) => {
+		if(user.email.length > longestEmail) {
+			return user.email;
+		}
+		return longestEmail;
+	}, users[0].email.length);
+	console.log(longestUserEmail);
+
+	const longestUserEmail2 = users.reduce((longestEmail, user) => {
 		if(user.email.length > longestEmail) {
 			return user.email.length;
 		}
 		return longestEmail;
 	}, 0);
-	console.log(longestUserEmail);
+	console.log(longestUserEmail2);
 
 
 
