@@ -42,8 +42,11 @@
 	const usersLanguages = users.filter(user => user.languages.length >= 3);
 	console.log(usersLanguages);
 
+
+
 	const usersEmail = users.map(user => user.email);
 	console.log(usersEmail);
+
 
 	const totalUsersYrsExperience = users.reduce((sumOfYrs,user) => {
 		return sumOfYrs + user.yearsOfExperience;
@@ -52,16 +55,34 @@
 	const avgTotalUsersExperience = totalUsersYrsExperience / users.length;
 	console.log(avgTotalUsersExperience);
 
+
+	// const longestUserEmail = users.reduce((longestEmail, user) => {
+	// 	if(user.email.length > longestEmail) {
+	// 		return user.email;
+	// 	}
+	// 	return longestEmail;
+	// }, users[0].email.length);
+	// console.log(longestUserEmail);
+
 	const longestUserEmail = users.reduce((longestEmail, user) => {
 		if(user.email.length > longestEmail) {
-			return user.email;
+			return user.email.length;
 		}
 		return longestEmail;
-	}, users[0].email.length);
+	}, 0);
 	console.log(longestUserEmail);
+
+
+
 	const usersNames = users.reduce((str, user) => {
 		return  str + ' ' + user.name;
 	}, "Your instructors are: ")
-
 	console.log(usersNames);
+
+//BONUS
+	const uniqueUserLanguages = new Set();
+	for (let i = 0; i < users.length; i++) {
+		uniqueUserLanguages.add(users[i].languages);
+	}
+	console.log(uniqueUserLanguages);
 })();
