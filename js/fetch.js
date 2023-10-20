@@ -1,20 +1,22 @@
 (() => {
 	"use strict";
 
-	function lastGitHubCommit(username) {
-		return fetch('https://api.github.com/users', {headers: {"Authorization": "token" + "GITHUB_API_KEY"}})
+
+	const getLastCommit = (username) =>  {
+		fetch(`https://api.github.com/users/${username}/events/public`, {headers: {"Authorization": "token" + "GITHUB_API_KEY"}})
+			.then(response => {
+				return response.json();
+			}).then(data => {
+				console.log(data[0].created_at);
+		});
 	}
-}
-
-// lastGitHubCommit(username).then(users => {
-// 	// console.log(username.commit[0]);
-//
-// })
-//
-//
-//
-// })
-// ();
 
 
-// fetch(url, {headers: {'Authorization': 'token YOUR_TOKEN_HERE'}})
+
+
+
+getLastCommit("stacihs");
+
+
+
+})();

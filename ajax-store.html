@@ -32,11 +32,16 @@
 		return response.json()
 		.then(data => {
 			console.log(data);
+			makeTableRows(data);
 		});
 	})
 
 	// TODO: Take the data from inventory.json and append it to the products table
-
+	const makeTableRows = tools => {
+		const tbody = document.createElement("#insertProducts");
+		const tr = document.createElement("tr");
+		const
+	}
 
 	//       HINT: Your data should come back as a JSON object; use console.log() to inspect
 	//             its contents and fields
