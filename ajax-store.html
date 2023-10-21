@@ -30,18 +30,41 @@
 
 	fetch("data/inventory.json").then(response => {
 		return response.json()
-		.then(data => {
-			console.log(data);
-			makeTableRows(data);
-		});
+			.then(data => {
+				listInventory(data);
+				console.log(data);
+			});
 	})
 
 	// TODO: Take the data from inventory.json and append it to the products table
-	const makeTableRows = tools => {
-		const tbody = document.createElement("#insertProducts");
-		const tr = document.createElement("tr");
-		const
+	const listInventory = inventory => {
+		const list = document.querySelector("#insertProducts");
+
+		for (let i = 0; i < inventory.length; i++) {
+			// TITLE
+			const row = document.createElement("tr");
+			const toolName = document.createElement("td");
+			toolName.innerText = `${inventory[i].title}`;
+			row.appendChild(toolName);
+			list.appendChild(row);
+			// QUANTITY
+			const toolQuantity = document.createElement("td");
+			toolQuantity.innerText = `${inventory[i].quantity}`;
+			row.appendChild(toolQuantity);
+			list.appendChild(row);
+			// PRICE
+			const toolPrice = document.createElement("td");
+			toolPrice.innerText = `${inventory[i].price}`;
+			row.appendChild(toolPrice);
+			list.appendChild(row);
+			// CATEGORIES
+			const toolCategories = document.createElement("td");
+			toolCategories.innerText = `${inventory[i].categories}`;
+			row.appendChild(toolCategories);
+			list.appendChild(row);
+		}
 	}
+
 
 	//       HINT: Your data should come back as a JSON object; use console.log() to inspect
 	//             its contents and fields
