@@ -33,7 +33,12 @@
 		center: [-98.491142, 29.424349]
 	});
 
+	const marker = new mapboxgl.Marker()
+		.setLngLat([-98.49827, 29.55646])
+		.addTo(map)
+
 	geocode('12656 West Ave, San Antonio, TX 78216', MAPBOX_API_KEY).then(result => {
+		console.log(result);
 		map.setCenter(result);
 		map.setZoom(15);
 	})
