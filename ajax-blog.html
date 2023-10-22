@@ -6,18 +6,49 @@
 	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Ajax Blog</title>
+	<link rel="stylesheet" href="css/ajax-blog.css">
 </head>
 <body>
-  <div id="posts"></div>
-
+<div class="page-wrapper">
+	<header>
+		<h1>Staci's Blog</h1>
+	</header>
+	<aside></aside>
+	<main id="posts"></main>
+</div>
 <script>
 	fetch('data/blog.json')
-	.then( response => {
-		return response.json();
-	})
-	.then( data => {
-		console.log(data);
-	});
+		.then(response => {
+			return response.json();
+		})
+		.then(data => {
+			listBlogPosts(data);
+		});
+
+	const listBlogPosts = posts => {
+		const allPosts = document.querySelector("#posts");
+		allPosts.classList.add("container");
+
+		for (const post of posts) {
+			const postRow = document.createElement("section");
+			postRow.classList.add("row");
+			allPosts.appendChild(postRow);
+
+			const postContent = document.createElement("article")
+			postContent.classList.add("col");
+			const postTitle = document.createElement("h2");
+			postTitle.innerText = `${post.title}`;
+			postContent.appendChild(postTitle);
+
+			const postBody = document.createElement("p");
+			postBody.innerText = `${post.content}`;
+			postTitle.insertAdjacentElement("afterend", postBody);
+			postRow.appendChild(postContent);
+
+			allPosts.appendChild(postRow);
+		}
+	}
+
 </script>
 </body>
 </html>
