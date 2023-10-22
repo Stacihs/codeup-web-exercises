@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mapbox Practice</title>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet'/>
+</head>
+<body>
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+	// TO MAKE THE MAP APPEAR YOU MUST
+	// ADD YOUR ACCESS TOKEN FROM
+	// https://account.mapbox.com
+
+// ******GEOCODING TO PLACE A MARKER*******
+
+	// const ACCESS_TOKEN = MAPBOX_API_KEY;
+	//
+	// mapboxgl.accessToken = ACCESS_TOKEN;
+	//
+	// const map = new mapboxgl.Map({
+	// 	container: 'map',
+	// 	style: 'mapbox://styles/mapbox/streets-v9',
+	// 	zoom: 10,
+	// 	center: [-98.4916, 29.4252]
+	// });
+	//
+	// const alamoInfo = {
+	// 	address: "The Alamo, San Antonio",
+	// 	popupHTML: "<p>Welcome to the Alamo!</p>"
+	// };
+	//
+	// function placeMarkerAndPopup(info, token, map) {
+	// 	geocode(info.address, token).then( coords => {
+	// 		let popup = new mapboxgl.Popup()
+	// 			.setHTML(info.popupHTML);
+	// 		let marker = new mapboxgl.Marker()
+	// 			.setLngLat(coords)
+	// 			.addTo(map)
+	// 			.setPopup(popup);
+	// 		popup.addTo(map);
+	// 	});
+	// }
+	//
+	// placeMarkerAndPopup(alamoInfo, ACCESS_TOKEN, map);
+
+// *******GEOCODING********
+
+	// mapboxgl.accessToken = MAPBOX_API_KEY;
+	// const map = new mapboxgl.Map({
+	// 	container: 'map', // container ID
+	// 	style: 'mapbox://styles/mapbox/navigation-day-v1', // style URL
+	// 	center: [-122.2079, 47.4797], // starting position [lng, lat]
+	// 	zoom: 10, // starting zoom
+	// });
+	//
+	// geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_API_KEY).then(result => {
+	// 	console.log(result);
+	// 	map.setCenter(result);
+	// 	map.setZoom(10);
+	// });
+
+// ************REVERSE GEOCODING*********
+	// reverseGeocode({lng: -98.4916, lat: 29.4260}, MAPBOX_API_KEY).then(results => {
+	// 	console.log(results);
+	// });
+
+
+
+
+	// const marker = new mapboxgl.Marker({
+	// 	color: 'orange'
+	// }).setLngLat([-122.2079, 47.4797])
+	// 	.addTo(map)
+	//
+	// const rentonPopup = new mapboxgl.Popup()
+	// 	.setHTML("<p>Sis!</p>");
+	//
+	// marker.setPopup(rentonPopup);
+
+
+	// const markerHeight = 50;
+	// const markerRadius = 10;
+	// const linearOffset = 25;
+	// const popupOffsets = {
+	// 	'top': [0, 0],
+	// 	'top-left': [0, 0],
+	// 	'top-right': [0, 0],
+	// 	'bottom': [0, -markerHeight],
+	// 	'bottom-left': [linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+	// 	'bottom-right': [-linearOffset, (markerHeight - markerRadius + linearOffset) * -1],
+	// 	'left': [markerRadius, (markerHeight - markerRadius) * -1],
+	// 	'right': [-markerRadius, (markerHeight - markerRadius) * -1]
+	// };
+	// const popup = new mapboxgl.Popup({offset: popupOffsets, className: 'my-class'})
+	// 	// .setLngLat([-122.2079, 47.4797])
+	// 	.setHTML("<h1>Hello World!</h1>")
+	// 	.setMaxWidth("300px")
+	// // .addTo(map);
+
+</script>
+</body>
+</html>
