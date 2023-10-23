@@ -37,6 +37,11 @@
 		.setLngLat([-98.49827, 29.55646])
 		.addTo(map)
 
+	const popup = new mapboxgl.Popup()
+		.setHTML("<p>Two Bros BBQ</p>");
+
+	marker.setPopup(popup);
+
 	geocode('12656 West Ave, San Antonio, TX 78216', MAPBOX_API_KEY).then(result => {
 		console.log(result);
 		map.setCenter(result);
