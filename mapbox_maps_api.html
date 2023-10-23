@@ -33,20 +33,46 @@
 		center: [-98.491142, 29.424349]
 	});
 
-	const marker = new mapboxgl.Marker()
-		.setLngLat([-98.49827, 29.55646])
-		.addTo(map)
+	const favRestaurants = [
+		{
+			address: "12656 West Ave, San Antonio, TX 78216",
+			popupHTML: "<p>Two Bros BBQ</p>"
+		},
+		{
+			address: "12820 Jones Maltsberger Rd, San Antonio, TX 78247",
+			popupHTML: "<p>Pepe's Tacos N Salsa</p>"
+		},
+		{
+			address: "7300 Jones Maltsberger Rd San Antonio, TX 78209",
+			popupHTML: "<p>Ida Claire</p>"
+		}
+	];
 
-	const popup = new mapboxgl.Popup()
-		.setHTML("<p>Two Bros BBQ</p>");
+	const addMarkersAndInfo = (infoArr, token, map) => {
+		infoArr.forEach((info) => geocode(info.address, token).then(coords => {
+			let popup = new mapboxgl.Popup()
+				.setHTML(info.popupHTML)
+			let marker = new mapboxgl.Marker()
+				.setLngLat(coords)
+				.addTo(map)
+				.setPopup(popup);
+		}));
+	}
+	addMarkersAndInfo(favRestaurants, mapboxgl.accessToken, map);
+	// const marker = new mapboxgl.Marker()
+	// 	.setLngLat([-98.49827, 29.55646])
+	// 	.addTo(map)
+	//
+	// const popup = new mapboxgl.Popup()
+	// 	.setHTML("<p>Two Bros BBQ</p>");
+	//
+	// marker.setPopup(popup);
 
-	marker.setPopup(popup);
-
-	geocode('12656 West Ave, San Antonio, TX 78216', MAPBOX_API_KEY).then(result => {
-		console.log(result);
-		map.setCenter(result);
-		map.setZoom(15);
-	})
+	// geocode('12656 West Ave, San Antonio, TX 78216', MAPBOX_API_KEY).then(result => {
+	// 	console.log(result);
+	// 	map.setCenter(result);
+	// 	map.setZoom(15);
+	// })
 </script>
 </body>
 </html>
