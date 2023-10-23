@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>My Beautiful Weather Map</title>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet'/>
+	<link rel="stylesheet" href="css/weather-map.css">
+</head>
+<body>
+<div class="page-wrapper">
+	<header class="row">
+		<h1>Weather Forecast</h1>
+		<h3>Current Location: San Antonio</h3>
+	</header>
+	<form action="" method="post" class="row">
+		<label for="location">Enter a Location</label>
+		<input type="text" name="location" id="location">
+	</form>
+	<main class="container">
+		<section class="row" id="map-row">
+			<div class="col" id="map"></div>
+		</section>
+	</main>
+</div>
+
+<script src="js/keys.js"></script>
+<script src="js/weather-map.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="js/weather-utils.js"></script>
+</body>
+</html>
