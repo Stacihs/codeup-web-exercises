@@ -32,8 +32,8 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
-	border: 1px solid #bcbcbc;
-	border-radius: 3px;
+	/*border: 1px solid #bcbcbc;*/
+	/*border-radius: 3px;*/
 	height: 15rem;
 	width: 10rem;
 }

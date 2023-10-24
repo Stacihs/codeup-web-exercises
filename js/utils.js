@@ -52,3 +52,10 @@ function findHighestPrice(objArr) {
     return highestPrice;
 }
 
+const convertDateTime = (dt) => {
+    const timeStamp = dt;
+    const milliseconds = timeStamp * 1000;
+    const dateObject = new Date(milliseconds);
+    const readableDate = dateObject.toLocaleString();
+    console.log(readableDate);
+}
