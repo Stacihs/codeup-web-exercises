@@ -44,18 +44,15 @@ fetch(`https://api.openweathermap.org/data/2.5/forecast?` + `id=4726206` + `&app
 // ********VARIABLES**********
 const main = document.querySelector("main");
 const mapSection = document.querySelector("#map-row");
-const userInput = document.querySelector("#location").value;
 const wxIconURL = `https://openweathermap.org/img/wn/`;
+const input = document.querySelector("#location");
+let userInput = document.querySelector("input.value");
 // const feels_likeHeader = document.createElement("h4");
 // const feels_like = document.createElement("p");
 // const description = document.createElement("p");
 // description.innerText = currentWeather.weather[0].description;
 // const humidityHeader = document.createElement("h4");
 // const humidity = document.createElement("p");
-
-// (currentWeather.main.feels_like);
-// (currentWeather.main.humidity);
-// (currentWeather.dt);
 
 //**********FUNCTIONS***********
 const displayWXConditions = (currentWeather) => {
@@ -84,7 +81,7 @@ const displayWXConditions = (currentWeather) => {
 
 const displayFiveDayForecast = (forecast) => {
 	const tempFiveSection = document.createElement("section");
-	tempFiveSection.classList.add("row");
+	tempFiveSection.classList.add("row", "hidden");
 	forecast.list.forEach((day, index) => {
 		if (index % 8 === 0) {
 			const daily = document.createElement("div")
@@ -106,21 +103,33 @@ const displayFiveDayForecast = (forecast) => {
 }
 
 const convertDateTime = (dt) => {
-	const timeStamp = dt;
-	const milliseconds = timeStamp * 1000;
+	const milliseconds = dt * 1000;
 	const dateObject = new Date(milliseconds);
 	const readableDate = dateObject.toLocaleDateString();
 	return(readableDate);
 }
 
 
-const createMarker= (data) => {
-	const mapLat= data.coord.lat;
-	const mapLon= data.coord.lon;
+const createMarker = (data) => {
+	let mapLat= data.coord.lat;
+	let mapLng = data.coord.lon;
 	const marker = new mapboxgl.Marker({
 		draggable: true
 		})
-		.setLngLat([mapLon,mapLat])
+		.setLngLat([mapLng,mapLat])
 		.addTo(map);
 }
+
+const updateMarker = (data) => {
+	let mapMarker = new mapboxgl.Marker();
+	// Store the marker's longitude and latitude coordinates in a variable
+	const lngLat = marker.getLngLat();
+// Print the marker's longitude and latitude values in the console
+	console.log(`Longitude: ${lngLat.lng}, Latitude: ${lngLat.lat}`);
+}
+
+// *********EVENT LISTENERS********
+// button.addEventListener(displayFiveDayForecast(data) => {
+//
+// })
 //ALLOW USER TO DROP PIN AND UPDATE FORECAST
