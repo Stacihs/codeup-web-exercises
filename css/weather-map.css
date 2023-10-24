@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500&display=swap');
+
 * {
 	box-sizing: border-box;
 	margin: unset;
 	padding: unset;
+	font-family: 'Nunito Sans', sans-serif;
 }
 
 .page-wrapper {
 	min-height: 100dvh;
+	font-size: 20px;
 }
 
 .container {
@@ -23,6 +27,17 @@
 	width: 100%;
 }
 
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	border: 1px solid #bcbcbc;
+	border-radius: 3px;
+	height: 15rem;
+	width: 10rem;
+}
+
 header {
 	text-align: center;
 	padding: 1.5rem;
@@ -37,9 +52,21 @@ label {
 	margin: 0.5rem;
 }
 
+section {
+	margin: 10px;
+}
+
+h2 {
+	font-size: 1em;
+	text-align: center;
+}
+
+h3 {
+	font-size: 2em;
+}
 
 #map {
 	/* the width and height may be set to any size */
 	width: 50%;
-	height: 500px;
+	height: 400px;
 }
