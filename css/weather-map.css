@@ -24,6 +24,7 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	padding: 20px;
 	width: 100%;
 }
 
@@ -43,9 +44,14 @@
 	width: 10rem;
 }
 
-.hidden {
-	display: none;
+img {
+	width: 75px;
+	height: 75px;
 }
+
+/*.hidden {*/
+/*	display: none;*/
+/*}*/
 
 header {
 	display: flex;
@@ -80,6 +86,6 @@ h3 {
 
 #map {
 	/* the width and height may be set to any size */
-	width: 50%;
+	width: 60%;
 	height: 400px;
 }

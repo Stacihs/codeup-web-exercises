@@ -1,12 +1,25 @@
 "use script";
-
+// ********VARIABLES**********
 mapboxgl.accessToken = MAPBOX_API_KEY;
 const map = new mapboxgl.Map({
 	container: 'map',
 	style: 'mapbox://styles/mapbox/outdoors-v12',
 	zoom: 10,
 	center: [-98.491142, 29.424349]
-})
+});
+
+const fetchURL = `https://api.openweathermap.org/data/2.5`;
+const wxIconURL = `https://openweathermap.org/img/wn/`;
+const main = document.querySelector("main");
+const mapSection = document.querySelector("#map-row");
+// *********const input = document.querySelector("#location");
+// *********let userInput = document.querySelector("input.value");
+// const feels_likeHeader = document.createElement("h4");
+// const feels_like = document.createElement("p");
+// const description = document.createElement("p");
+// description.innerText = currentWeather.weather[0].description;
+// const humidityHeader = document.createElement("h4");
+// const humidity = document.createElement("p");
 
 // *******GEOCODING********
 
@@ -25,36 +38,39 @@ const map = new mapboxgl.Map({
 // });
 
 // ********FOR CURRENT FORECAST***********
-fetch(`https://api.openweathermap.org/data/2.5/weather?` + `id=4726206` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
+fetch(fetchURL + `/weather?` + `id=4726206` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
 	.then(data => data.json())
 	.then(currentWeather => {
-		console.log(currentWeather);
 		displayWXConditions(currentWeather);
 		createMarker(currentWeather);
 	});
 
 // ***********FOR 5DAY FORECAST********
-fetch(`https://api.openweathermap.org/data/2.5/forecast?` + `id=4726206` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
+fetch(fetchURL + `/forecast?` + `id=4726206` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
 	.then(data => data.json())
 	.then(forecast => {
-		console.log(forecast);
 		displayFiveDayForecast(forecast);
 	});
 
-// ********VARIABLES**********
-const main = document.querySelector("main");
-const mapSection = document.querySelector("#map-row");
-const wxIconURL = `https://openweathermap.org/img/wn/`;
-const input = document.querySelector("#location");
-let userInput = document.querySelector("input.value");
-// const feels_likeHeader = document.createElement("h4");
-// const feels_like = document.createElement("p");
-// const description = document.createElement("p");
-// description.innerText = currentWeather.weather[0].description;
-// const humidityHeader = document.createElement("h4");
-// const humidity = document.createElement("p");
 
 //**********FUNCTIONS***********
+const createMarker = (data) => {
+	let mapLat = data.coord.lat;
+	let mapLng = data.coord.lon;
+	const marker = new mapboxgl.Marker({
+		draggable: true
+	})
+		.setLngLat([mapLng, mapLat])
+		.addTo(map);
+	const markerDragUpdate = () => {
+		const lngLat = marker.getLngLat();
+		const updateLng = lngLat.lng;
+		const updateLat = lngLat.lat;
+	}
+
+	marker.on('dragend', markerDragUpdate);
+}
+
 const displayWXConditions = (currentWeather) => {
 	const dateTime = document.createElement("p");
 	dateTime.innerText = convertDateTime(currentWeather.dt);
@@ -76,7 +92,6 @@ const displayWXConditions = (currentWeather) => {
 	daily.appendChild(icon);
 	main.insertBefore(tempSection, mapSection);
 }
-
 
 
 const displayFiveDayForecast = (forecast) => {
@@ -106,27 +121,9 @@ const convertDateTime = (dt) => {
 	const milliseconds = dt * 1000;
 	const dateObject = new Date(milliseconds);
 	const readableDate = dateObject.toLocaleDateString();
-	return(readableDate);
+	return (readableDate);
 }
 
-
-const createMarker = (data) => {
-	let mapLat= data.coord.lat;
-	let mapLng = data.coord.lon;
-	const marker = new mapboxgl.Marker({
-		draggable: true
-		})
-		.setLngLat([mapLng,mapLat])
-		.addTo(map);
-}
-
-const updateMarker = (data) => {
-	let mapMarker = new mapboxgl.Marker();
-	// Store the marker's longitude and latitude coordinates in a variable
-	const lngLat = marker.getLngLat();
-// Print the marker's longitude and latitude values in the console
-	console.log(`Longitude: ${lngLat.lng}, Latitude: ${lngLat.lat}`);
-}
 
 // *********EVENT LISTENERS********
 // button.addEventListener(displayFiveDayForecast(data) => {
