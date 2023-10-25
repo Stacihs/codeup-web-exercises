@@ -21,21 +21,6 @@ const mapSection = document.querySelector("#map-row");
 // const humidityHeader = document.createElement("h4");
 // const humidity = document.createElement("p");
 
-// *******GEOCODING********
-
-// mapboxgl.accessToken = MAPBOX_API_KEY;
-// const map = new mapboxgl.Map({
-// 	container: 'map', // container ID
-// 	style: 'mapbox://styles/mapbox/navigation-day-v1', // style URL
-// 	center: [-98.491142, 29.424349], // starting position [lng, lat]
-// 	zoom: 10, // starting zoom
-// });
-//
-// geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_API_KEY).then(result => {
-// 	console.log(result);
-// 	map.setCenter(result);
-// 	map.setZoom(10);
-// });
 
 // ********FOR CURRENT FORECAST***********
 fetch(fetchURL + `/weather?` + `id=4726206` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
@@ -64,10 +49,25 @@ const createMarker = (data) => {
 		.addTo(map);
 	const markerDragUpdate = () => {
 		const lngLat = marker.getLngLat();
-		const updateLng = lngLat.lng;
-		const updateLat = lngLat.lat;
-	}
+		let updateLng = lngLat.lng;
+		let updateLat = lngLat.lat;
+		console.log(lngLat);
 
+		mapboxgl.accessToken = MAPBOX_API_KEY;
+		const map = new mapboxgl.Map({
+			container: 'map', // container ID
+			style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
+			center: [updateLng, updateLat], // starting position [lng, lat]
+			zoom: 8, // starting zoom
+		});
+
+
+		// geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_API_KEY).then(result => {
+		// 	console.log(result);
+		// 	map.setCenter(result);
+		// 	map.setZoom(10);
+		// });
+	}
 	marker.on('dragend', markerDragUpdate);
 }
 
