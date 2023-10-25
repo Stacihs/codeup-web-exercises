@@ -1,4 +1,6 @@
-"use script";
+"use strict";
+
+
 // ********VARIABLES**********
 mapboxgl.accessToken = MAPBOX_API_KEY;
 const map = new mapboxgl.Map({
@@ -12,14 +14,9 @@ const fetchURL = `https://api.openweathermap.org/data/2.5`;
 const wxIconURL = `https://openweathermap.org/img/wn/`;
 const main = document.querySelector("main");
 const mapSection = document.querySelector("#map-row");
-// *********const input = document.querySelector("#location");
-// *********let userInput = document.querySelector("input.value");
-// const feels_likeHeader = document.createElement("h4");
-// const feels_like = document.createElement("p");
-// const description = document.createElement("p");
-// description.innerText = currentWeather.weather[0].description;
-// const humidityHeader = document.createElement("h4");
-// const humidity = document.createElement("p");
+const input = document.querySelector("input");
+let userInput = document.querySelector("input").value;
+const search = document.querySelector("#search-btn");
 
 
 // ********FOR CURRENT FORECAST***********
@@ -28,17 +25,28 @@ fetch(fetchURL + `/weather?` + `id=4726206` + `&appid=${OPEN_WEATHER_API_KEY}&un
 	.then(currentWeather => {
 		displayWXConditions(currentWeather);
 		createMarker(currentWeather);
-	});
+	})
+	.catch(error => console.error(error));
 
 // ***********FOR 5DAY FORECAST********
 fetch(fetchURL + `/forecast?` + `id=4726206` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
 	.then(data => data.json())
 	.then(forecast => {
 		displayFiveDayForecast(forecast);
-	});
+	})
+	.catch(error => console.error(error));
 
 
 //**********FUNCTIONS***********
+
+const userSearch = () => {
+	geocode(`${userInput}`, MAPBOX_API_KEY).then(result => {
+		console.log(result);
+		map.setCenter(result);
+		map.setZoom(10);
+	});
+}
+
 const createMarker = (data) => {
 	let mapLat = data.coord.lat;
 	let mapLng = data.coord.lon;
@@ -51,22 +59,29 @@ const createMarker = (data) => {
 		const lngLat = marker.getLngLat();
 		let updateLng = lngLat.lng;
 		let updateLat = lngLat.lat;
-		console.log(lngLat);
 
-		mapboxgl.accessToken = MAPBOX_API_KEY;
+		const wxSections = document.querySelectorAll("section");
+		wxSections[0].classList.add("hidden");
+		wxSections[1].classList.add("hidden");
+		wxSections[2].classList.remove("hidden");
+
+
 		const map = new mapboxgl.Map({
-			container: 'map', // container ID
-			style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
-			center: [updateLng, updateLat], // starting position [lng, lat]
-			zoom: 8, // starting zoom
+			container: 'map',
+			style: 'mapbox://styles/mapbox/outdoors-v12',
+			center: [updateLng, updateLat],
+			zoom: 8,
 		});
 
 
-		// geocode("600 Navarro St #350, San Antonio, TX 78205", MAPBOX_API_KEY).then(result => {
-		// 	console.log(result);
-		// 	map.setCenter(result);
-		// 	map.setZoom(10);
-		// });
+
+		fetch(fetchURL + `/forecast?` + `lat=${updateLat}&lon=${updateLng}` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
+			.then(data => data.json())
+			.then(forecast => {
+				displayFiveDayForecast(forecast);
+			})
+			.catch(error => console.error(error));
+
 	}
 	marker.on('dragend', markerDragUpdate);
 }
@@ -81,6 +96,8 @@ const displayWXConditions = (currentWeather) => {
 	const icon = document.createElement("span");
 	const wxIcon = wxIconURL + currentWeather.weather[0].icon + '.png';
 	icon.innerHTML = '<img src="' + wxIcon + '" />';
+	const description = document.createElement("p");
+	description.innerText = currentWeather.weather[0].description;
 	const tempSection = document.createElement("section");
 	tempSection.classList.add("row");
 	const daily = document.createElement("div");
@@ -90,13 +107,14 @@ const displayWXConditions = (currentWeather) => {
 	daily.appendChild(tempHeader);
 	daily.appendChild(temp);
 	daily.appendChild(icon);
+	daily.appendChild(description);
 	main.insertBefore(tempSection, mapSection);
 }
 
 
 const displayFiveDayForecast = (forecast) => {
 	const tempFiveSection = document.createElement("section");
-	tempFiveSection.classList.add("row", "hidden");
+	tempFiveSection.classList.add("row");
 	forecast.list.forEach((day, index) => {
 		if (index % 8 === 0) {
 			const daily = document.createElement("div")
@@ -108,10 +126,13 @@ const displayFiveDayForecast = (forecast) => {
 			const fiveIcon = document.createElement("span");
 			const wxFiveIcon = wxIconURL + day.weather[0].icon + '.png';
 			fiveIcon.innerHTML = '<img src="' + wxFiveIcon + '" />';
+			const fiveDayDescription = document.createElement("p");
+			fiveDayDescription.innerText = day.weather[0].description;
 			tempFiveSection.appendChild(daily);
 			daily.appendChild(dateTime);
 			daily.appendChild(dailyTemp);
 			daily.appendChild(fiveIcon);
+			daily.appendChild(fiveDayDescription);
 			main.insertBefore(tempFiveSection, mapSection);
 		}
 	});
@@ -126,7 +147,23 @@ const convertDateTime = (dt) => {
 
 
 // *********EVENT LISTENERS********
-// button.addEventListener(displayFiveDayForecast(data) => {
-//
-// })
-//ALLOW USER TO DROP PIN AND UPDATE FORECAST
+input.addEventListener("input", (event) => {
+	userInput = event.target.value;
+})
+
+search.addEventListener("click", (event) => {
+	event.preventDefault();
+	userSearch();
+	fetch(fetchURL + `/forecast?` + `lat=${updateLat}&lon=${updateLng}` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
+		.then(data => data.json())
+		.then(forecast => {
+			displayFiveDayForecast(forecast);
+		})
+		.catch(error => console.error(error));
+})
+
+
+// const feels_likeHeader = document.createElement("h4");
+// const feels_like = document.createElement("p");
+// const humidityHeader = document.createElement("h4");
+// const humidity = document.createElement("p");

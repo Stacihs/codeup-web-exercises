@@ -49,9 +49,9 @@ img {
 	height: 75px;
 }
 
-/*.hidden {*/
-/*	display: none;*/
-/*}*/
+.hidden {
+	display: none;
+}
 
 header {
 	display: flex;
