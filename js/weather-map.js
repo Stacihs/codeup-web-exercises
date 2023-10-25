@@ -36,7 +36,6 @@ fetch(fetchURL + `/forecast?` + `id=4726206` + `&appid=${OPEN_WEATHER_API_KEY}&u
 	})
 	.catch(error => console.error(error));
 
-
 //**********FUNCTIONS***********
 
 const userSearch = () => {
@@ -44,6 +43,23 @@ const userSearch = () => {
 		console.log(result);
 		map.setCenter(result);
 		map.setZoom(10);
+		const marker = new mapboxgl.Marker({
+			draggable: true
+		})
+			.setLngLat(result)
+			.addTo(map);
+		fetch(fetchURL + `/forecast?` + `lat=${result[1]}&lon=${result[0]}` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
+			.then(data => data.json())
+			.then(forecast => {
+				displayFiveDayForecast(forecast);
+				const sections = document.querySelectorAll("section");
+				if (sections.length > 2) {
+					for (let i = sections.length - 3; i >= 0; i--) {
+						sections[i].classList.add("hidden");
+					}
+				}
+			})
+			.catch(error => console.error(error));
 	});
 }
 
@@ -72,7 +88,6 @@ const createMarker = (data) => {
 			center: [updateLng, updateLat],
 			zoom: 8,
 		});
-
 
 
 		fetch(fetchURL + `/forecast?` + `lat=${updateLat}&lon=${updateLng}` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
@@ -153,17 +168,7 @@ input.addEventListener("input", (event) => {
 
 search.addEventListener("click", (event) => {
 	event.preventDefault();
+	const currentLocation = document.querySelector("#current");
+	currentLocation.textContent = userInput;
 	userSearch();
-	fetch(fetchURL + `/forecast?` + `lat=${updateLat}&lon=${updateLng}` + `&appid=${OPEN_WEATHER_API_KEY}&units=imperial`)
-		.then(data => data.json())
-		.then(forecast => {
-			displayFiveDayForecast(forecast);
-		})
-		.catch(error => console.error(error));
 })
-
-
-// const feels_likeHeader = document.createElement("h4");
-// const feels_like = document.createElement("p");
-// const humidityHeader = document.createElement("h4");
-// const humidity = document.createElement("p");

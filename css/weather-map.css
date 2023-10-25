@@ -7,6 +7,7 @@
 	font-family: 'Nunito Sans', sans-serif;
 }
 
+/*CLASSES*/
 .page-wrapper {
 	min-height: 100dvh;
 	font-size: 20px;
@@ -21,7 +22,7 @@
 
 .row {
 	display: flex;
-	flex-direction: row;
+	flex-flow: row wrap;
 	justify-content: center;
 	align-items: center;
 	padding: 20px;
@@ -30,33 +31,38 @@
 
 .col {
 	display: flex;
-	flex-direction: column;
+	flex-flow: column wrap;
 	justify-content: center;
 	align-items: center;
 }
 
 .card {
 	display: flex;
-	flex-direction: column;
+	flex-flow: column wrap;
 	justify-content: space-around;
 	align-items: center;
 	height: 15rem;
 	width: 10rem;
 }
 
+.hidden {
+	display: none;
+}
+
+/*IDs*/
+#map {
+	/* the width and height may be set to any size */
+	width: 80%;
+	height: 500px;
+}
+
+/*TAGs*/
 img {
 	width: 75px;
 	height: 75px;
 }
 
-.hidden {
-	display: none;
-}
-
 header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	justify-content: center;
 	background-color: #d7edd7;
 	padding: 1.5rem;
@@ -75,17 +81,18 @@ section {
 	margin: 10px;
 }
 
+h1, h2, p {
+	text-align: center;
+}
+
 h2 {
 	font-size: 1em;
-	text-align: center;
 }
 
 h3 {
 	font-size: 2em;
 }
 
-#map {
-	/* the width and height may be set to any size */
-	width: 60%;
-	height: 400px;
+p {
+	font-size: 1rem;
 }
