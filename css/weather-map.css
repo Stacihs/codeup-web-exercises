@@ -89,6 +89,12 @@ h2 {
 	font-size: 1em;
 }
 
+h2 span {
+	text-transform: uppercase;
+}
+
+
+
 h3 {
 	font-size: 2em;
 }

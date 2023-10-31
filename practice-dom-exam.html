@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM Practice Assessment</title>
+
+	<style>
+		.my-font-bold {
+			font-weight: bold;
+		}
+
+		.pbjt-image {
+			width: 200px;
+			height: 200px;
+			margin-top: -25px;
+		}
+
+		.my-blue {
+			background-color: blue;
+		}
+
+		.my-green {
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+<h1>DOM (and a little BOM) Practice Assessment</h1>
+
+<h4>Problem 1</h4>
+<p id="par-problem1">Change my background color to blue!</p>
+<button id="btn-problem1">Change Paragraph BG Color</button>
+<hr>
+
+<h4>Problem 2</h4>
+<button id="btn-problem2">Reload the page</button>
+<hr>
+
+<h4>Problem 3</h4>
+<label for="input-problem3">Enter a background color:</label>
+<input type="text" id="input-problem3" placeholder="Type color here, e.g., red">
+<p id="par-problem3">Change my background color to whatever the user types</p>
+<hr>
+
+<h4>Problem 4</h4>
+<ul>
+	<li class="li-problem4">Bold on mouseover, unbold on mouseleave</li>
+	<li class="li-problem4">Bold on mouseover, unbold on mouseleave</li>
+	<li class="li-problem4">Bold on mouseover, unbold on mouseleave</li>
+	<li class="li-problem4">Bold on mouseover, unbold on mouseleave</li>
+	<li class="li-problem4">Bold on mouseover, unbold on mouseleave</li>
+</ul>
+<hr>
+
+<h4>Problem 5</h4>
+<img id="pbjt-problem5" class="pbjt-image" src="images/pbjt_1.png" alt="">
+<hr>
+
+<h4>Problem 6</h4>
+<p id="par-problem6">Toggle my background color to blue every second!</p>
+<button id="btn-problem6">Toggle Paragraph BG Color</button>
+<hr>
+
+<h4>Problem 7</h4>
+<button id="btn-problem7">Toggle the background color for all H4s to green</button>
+
+<script>
+	// WRITE YOUR CODE HERE!
+	// #1
+	document.querySelector('#btn-problem1').addEventListener('click', () => {
+		document.querySelector('#par-problem1').classList.add('my-blue');
+	});
+	//   #2
+	document.querySelector('#btn-problem2').addEventListener('click', () => {
+		location.reload();
+	});
+
+	//   #3
+	document.querySelector('#input-problem3').addEventListener('change', () => {
+		const userInput = document.querySelector('#input-problem3').value;
+		document.querySelector('#par-problem3').style.backgroundColor = `${userInput}`;
+	})
+
+	//   #4
+	const lis = document.querySelectorAll('li');
+	lis.forEach(li => {
+		li.addEventListener('mouseenter', (event) => {
+			event.target.classList.toggle('my-font-bold');
+		})
+		li.addEventListener('mouseleave', (event) => {
+			event.target.classList.toggle('my-font-bold');
+		})
+	});
+
+	//   #5
+	const pic = document.querySelector('#pbjt-problem5');
+	pic.addEventListener('mouseenter', () => {
+		pic.setAttribute('src', 'images/pbjt_2.gif');
+	});
+	pic.addEventListener('mouseleave', () => {
+		pic.setAttribute('src', 'images/pbjt_1.png');
+	});
+
+	//   #6
+	const blueDelay = 1000;
+	const blue = () => {
+		document.querySelector('#par-problem6').classList.toggle('my-blue');
+	}
+	let intervalId;
+	const toggleBtn = document.querySelector('#btn-problem6');
+
+	toggleBtn.addEventListener('click', () => {
+		// intervalId = setInterval(blue, blueDelay);
+	})
+
+	toggleBtn.addEventListener('click', () => {
+		clearInterval(intervalId);
+	});
+
+	//   #7
+	const h4s = document.querySelectorAll('h4');
+	document.querySelector('#btn-problem7').addEventListener('click', () => {
+		h4s.forEach(h4 => {
+			h4.classList.toggle('my-green');
+		})
+	})
+
+</script>
+</body>
+</html>

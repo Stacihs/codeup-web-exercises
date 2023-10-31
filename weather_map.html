@@ -17,12 +17,12 @@
 			<h1>Weather Forecast</h1>
 			<h4>Current Location: <span id="current">San Antonio</span></h4>
 		</div>
+		<form action="" method="post" class="row">
+			<label for="location">Enter new location</label>
+			<input type="text" name="location" id="location">
+			<button type="submit" id="search-btn">Search</button>
+		</form>
 	</header>
-	<form action="" method="post" class="row">
-		<label for="location">Enter new location</label>
-		<input type="text" name="location" id="location">
-		<button type="submit" id="search-btn">Search</button>
-	</form>
 	<main class="container">
 		<section class="row" id="map-row">
 			<div class="col" id="map"></div>
