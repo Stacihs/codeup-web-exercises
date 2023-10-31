@@ -16,6 +16,8 @@ const mapSection = document.querySelector("#map-row");
 const input = document.querySelector("input");
 let userInput = document.querySelector("input").value;
 const searchBtn = document.querySelector("#search-btn");
+const currentLocation = document.querySelector("#current");
+
 
 
 // ********FOR CURRENT FORECAST***********
@@ -46,12 +48,6 @@ const userSearch = () => {
 			.then(data => data.json())
 			.then(forecast => {
 				displayFiveDayForecast(forecast);
-				// const sections = document.querySelectorAll("section");
-				// if (sections.length > 2) {
-				// 	for (let i = sections.length - 3; i >= 0; i--) {
-				// 		sections[i].classList.add("hidden");
-				// 	}
-				// }
 			})
 			.catch(error => console.error(error));
 	});
@@ -70,6 +66,14 @@ const createMarker = (data) => {
 		let updateLng = lngLat.lng;
 		let updateLat = lngLat.lat;
 
+		reverseGeocode({lng: updateLng, lat: updateLat}, MAPBOX_API_KEY).
+		then( results => {
+			displayLocation(results);
+		});
+
+		const displayLocation = (results) => {
+			currentLocation.textContent = results;
+		}
 
 		const wxSections = document.querySelectorAll("section");
 		wxSections[0].classList.add("hidden");
@@ -170,7 +174,6 @@ input.addEventListener("input", (event) => {
 
 searchBtn.addEventListener("click", (event) => {
 	event.preventDefault();
-	const currentLocation = document.querySelector("#current");
 	currentLocation.textContent = userInput.toUpperCase();
 	userSearch();
 })
